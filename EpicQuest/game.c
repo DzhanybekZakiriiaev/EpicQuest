@@ -177,7 +177,7 @@ void stageTwo(GAME* game) {
 void stageThree(GAME* game) {
 	int choice = 0;
 	if (game->gamestate.decisions[6].choice == true) {
-		printf("A man should die in by the hand of a worthy opponent. Unfortunately, it didn't apply to you.\n");
+		printf("A man should die by the hand of a worthy opponent. Unfortunately, it didn't apply to you.\n");
 		printf("In the middle of the battle with wizard(that we can't show due to the lack of budget),\na small man killed you by stabing in the back.\n");
 		printf("You will never know where did he come from, why he is wizard's friend or what happened to the Middle-Earth.\n");
 		printf("THE END.\n");
