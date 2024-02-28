@@ -23,7 +23,7 @@ GAME createGame() {
 		FOLLOW_POTTER, TROLL_STEAL, EPIC_QUEST, CALCULATOR,
 		PROVE_GOD, ATTACK_GOD, TEST_YOUR_LUCK, TROLL_WEAR, PLAY_CLUB,
 		ISLAND_TUNNEL, ISLAND_SHIP, ISLAND_AIRSHIP, KILL_HERO, EXPLAIN_HERO,
-		KEEP_DIGGING, DIG_UP, MASSACRE, EAT_HERO
+		KEEP_DIGGING, MASSACRE, EAT_HERO
 	};
 	for (int i = 0; i < OPTION_NUM; i++) {
 		gamestate.decisions[i].choice = false;
@@ -296,13 +296,6 @@ void stageSix(GAME* game) {
 		printf("1. Try wearing his clothes.\n2. Play with a club.\n");
 		printf("Your choise: ");
 	}
-	else if (isTrue(*game, EPIC_QUEST)) {
-		printf("\033[H\033[2J");
-		setAllFalse(game);
-		startingMessage();
-		stageZero(game);
-		game -> gamestate.currentStage = 0;
-	}
 	else if (isTrue(*game, CALCULATOR)) {
 		printf("\033[H\033[2J");
 		calculator();
@@ -326,8 +319,14 @@ void stageSix(GAME* game) {
 				setTrue(game, PLAY_CLUB);
 			}
 		}
+		game->gamestate.currentStage += 1;
 	}
-	game->gamestate.currentStage += 1;
+	else if(isTrue(*game, EPIC_QUEST)){
+		printf("\033[H\033[2J");
+		setAllFalse(game);
+		startingMessage();
+		game->gamestate.currentStage = 0;
+	}
 }
 
 void stageSeven(GAME* game) {
@@ -338,12 +337,6 @@ void stageSeven(GAME* game) {
 		printf("There are a couple of logs lying near you, what will you make?\n");
 		printf("1. Make a tunnel to escape.\n2. Make a ship to escape.\n3. Make an airship to escape.\n");
 		printf("Your choise: ");
-	}
-	else if (isTrue(*game, ATTACK_GOD)) {
-		printf("\033[H\033[2J");
-		startingMessage();
-		stageZero(game);
-		game->gamestate.currentStage = 0;
 	}
 	else if (isTrue(*game, TEST_YOUR_LUCK)) {
 		printf("You are stranded on a desert island in the middle of the ocean.\n");
@@ -381,8 +374,13 @@ void stageSeven(GAME* game) {
 				setTrue(game, KILL_HERO);
 			}
 		}
+		game->gamestate.currentStage += 1;
 	}
-	game->gamestate.currentStage += 1;
+	else if (isTrue(*game, ATTACK_GOD)) {
+		printf("\033[H\033[2J");
+		startingMessage();
+		game->gamestate.currentStage = 0;
+	}
 }
 
 void stageEight(GAME* game) {
