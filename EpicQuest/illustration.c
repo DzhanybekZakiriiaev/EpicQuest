@@ -1,0 +1,125 @@
+﻿#include <stdio.h>
+#include <stdlib.h>
+#include <wchar.h>
+
+void printGod() {
+
+    printf("     .+~                :xx++::\n");
+    printf("                   :`. -          .!!X!~\"?!`~!~!. :-:.\n");
+    printf("                  {             .!!!H\":.~ ::+!~~!!!~ `XX.\n");
+    printf("                  '             ~~!M!!>!!X?!!!!!!!!!!...!~.\n");
+    printf("                              {!:!MM!~:XM!!!!!!.:!..~ !.  `{ \n");
+    printf("                  {: `   :~ .:{~!!M!XXHM!!!X!XXHtMMHHHX!  ~ ~\n");
+    printf("                ~~~~{' ~!!!:!!!!!XM!!M!!!XHMMMRMSXXX!!!!!!:  {`\n");
+    printf("                  `{  {::!!!!!X!X?M!!M!!XMMMMXXMMMM??!!!!!?!:~{\n");
+    printf("               : '~~~{!!!XMMH!!XMXMXHHXXXXM!!!!MMMMSXXXX!!!!!!!~\n");
+    printf("            :    ::`~!!!MMMMXXXtMMMMMMMMMMMHX!!!!!!HMMMMMX!!!!!: ~\n");
+    printf("               '~:~!!!!!MMMMMMMMMMMMMMMMMMMMMMXXX!!!M??MMMM!!X!!i:\n");
+    printf("             :XX {!!XHMMMM88MM88BR$M$$$$8@8RN88MMMMMMMMHXX?MMMMMX!!!\n");
+    printf("           .:X! {XMSM8M@@$$$$$$$$$$$$$$$$$$$B8R$8MMMMMMMMMMMMMMMMX!X\n");
+    printf("          :!?! !?XMMMMM8$$$$8$$$$$$$$$$$$$$BBR$$MMM@MMMMMMMMMMMMMM!!X\n");
+    printf("        ~{!!~ {!!XMMMB$$$$$$$$$$$$$$$$$$$$$$$$MMR$8MR$MMMMMMMMMMMMM!?!:\n");
+    printf("        :~~~ !:X!XMM8$$$$$$$$$$$$$$$$$$$$$$$RR$$MMMMR8NMMMMMMMMMMMMM{!`-\n");
+    printf("    ~:{!:~`~':!:HMM8N$$$$$$$$$$$$$$$$$$$$$$$$$8MRMM8R$MRMMMMMMMMRMMMX!\n");
+    printf("  !X!``~~   :~XM?SMM$B$$$$$$$$$$$$$$$$$R$$$$$R$M$MMRRRM8MMMMMMM$$MMMMX?L\n");
+    printf(" X~.      : `!!!MM#$RR$$$$$$$$$$RMM!?!??RR?#R8$M$MMMRM$RMMMM8MM$MMM!M!:>\n");
+    printf(" ! ~ {~  !! !!~`` :!!MR$$$$$$$$$$R888HMM!!XXHWX$8$RM$MR5$8MMMMR$$@MMM!!!{\n");
+    printf(" !  ' !  ~!! :!:XXHXMMMR$$$$$$$$$$$$$$$$8$$$$8$$$MMR$M$$$MMMMMM$$$MMM!!!!\n");
+    printf(" ~{!!!  !!! !!HMMMMMMMM$$$$$$$$$$$$$$$$$$$$$$$$$$MMM$M$$MM8MMMR$$MMXX!!!!/:`\n");
+    printf("  ~!!!  !!! !XMMMMMMMMMMR$$$$$$$$$$$$R$RRR$$$$$$$MMMM$RM$MM8MM$$$M8MMMX!!!!:\n");
+    printf("  !~ ~  !!~ XMMM%!!!XMMX?M$$$$$$$$B$MMSXXXH?MR$$8MMMM$$@$8$M$B$$$$B$MMMX!!!!\n");
+    printf("  : ' >!~ '!!  !   .!XMM8$$$$$@$$$R888M$$$N8MMMMMMMMMMMMMMMMX!XMMMXX!!!XM\n");
+    printf("  !  ' !  ~!! :!:X!!XHMMMM?~ XM$$R5M$8MMM$! -XXXMMRMBMMM$RMMM@$R$BR$MMMMX!!X\n");
+    printf("  !     ~  !!?:::!!!MXMR~!MMMRMM8MMMMMS!!M?XXMMMMM$$M$M$RMMMM8$RMMMMMMMMZX!!\n");
+    printf("  ~     ~  !~~X!!XHMMM?~ XM$MMMMRMMMMMM@MMMMMMMMMM$8@MMMMMMMMRMMMMM?!MMM%HX!\n");
+    printf("           !!!!XSMMXXMM .MMMMMMMM$$$BB8MMM@MMMMMMMR$RMMMMMMMMMMMMMMMXX!?H!XX\n");
+    printf("      ~   {!MMMMMMMMRM:XMMMMMMMMMM8R$$$$$$$$$$$$$$$NMMMMMMMM?!MM!M8MXX!!/t!M\n");
+    printf("      '   ~HMMMMMMMMM~!MM8@8MMM!MM$$8$$$$$$$$$$$$$$8MMMMMMM!!XMMMM$8MR!MX!MM\n");
+    printf("          'MMMMMMMMMM'MM$$$$$MMXMXM$$$$$$$$$$$$$$$$RMMMMMMM!!MMM$$$$MMMMM{!M\n");
+    printf("          'MMMMMMMMM!'MM$$$$$RMMMMMM$$$$$$$$$$$$$$$MMM!MMMX!!MM$$$$$M$$M$M!M\n");
+    printf("           !MMMMMM$M! !MR$$$RMM8$8MXM8$$$$$$$$$$$$NMMM!MMM!X!t8$M$MMMHMRMMX$\n");
+    printf("    ,-,   '!!!MM$RMSMX:.?!XMHRR$RM88$$$8M$$$$$R$$$$8MM!MMXMH!M$$RMMMMRNMMX$\n");
+    printf("   -'`    '!!!MMMMMMMMMM8$RMM8MBMRRMR8RMMM$$$$8$8$$$MMXMMMMM!MR$MM!M?MMMMMM$\n");
+    printf("          'XX!MMMMMMM@RMM$MM@$$BM$$$M8MMMMR$$$$@$$$$MM!MMMMXX$MRM!XH!!??XMMM\n");
+    printf("          `!!!M?MHMMM$RMMMR@$$$$MR@MMMM8MMMM$$$$$$$WMM!MMMM!M$RMM!!.MM!%M?~!\n");
+    printf("           !!!!!!MMMMBMM$$RRMMMR8MMMMMRMMMMM8$$$$$$$MM?MMMM!f#RM~    `~!!!~!\n");
+    printf("           ~!!HX!!~!?MM?MMM??MM?MMMMMMMMMRMMMM$$$$$MMM!MMMM!!\n");
+    printf("           '!!!MX!:`~~`~~!~~!!!!XM!!!?!?MMMM8$$$$$MMMMXMMM!!\n");
+    printf("            !!~M@MX.. {!!X!!!!XHMHX!!``!XMMMB$MM$$B$M!MMM!!\n");
+    printf("            !!!?MRMM!:!XHMHMMMMMMMM!  X!SMMX$$MM$$$RMXMMM~\n");
+    printf("             !M!MMMM>!XMMMMMMMMXMM!!:!MM$MMMBRM$$$$8MMMM~\n");
+    printf("             `?H!M$R>'MMMM?MMM!MM6!X!XM$$$MM$MM$$$$MX$f\n");
+    printf("              `MXM$8X MMMMMMM!!MM!!!!XM$$$MM$MM$$$RX@\"\n");
+    printf("               ~M?$MM !MMMMXM!!MM!!!XMMM$$$8$XM$$RM!`\n");
+    printf("                !XMMM !MMMMXX!XM!!!HMMMM$$$$RH$$M!~\n");
+    printf("                'M?MM `?MMXMM!XM!XMMMMM$$$$$RM$$#\n");
+    printf("                 `>MMk ~MMHM!XM!XMMM$$$$$$BRM$M\"\n");
+    printf("                  ~`?M. !M?MXM!X$$@M$$$$$$RMM#\n");
+    printf("                    `!M  !!MM!X8$$$RM$$$$MM#`\n");
+    printf("                      !% `~~~X8$$$$8M$$RR#`\n");
+    printf("                       !!x:xH$$$$$$$R$R*`\n");
+    printf("                        ~!?MMMMRRRM@M#`\n");
+    printf("                         `~???MMM?M\"`\n");
+    printf("                             ``~~\n");
+}
+
+void godProve() {
+
+    printf("                                          .+~                :xx++::\n");
+    printf("                                  :`. -          .!!X!~\"?!`~!~!. :-:.\n");
+    printf("                                  {             .!!!H\":.~ ::+!~~!!!~ `ZX.\n");
+    printf("                                  '             ~~!M!!>!!X?!!!!!!!!!!...!~.\n");
+    printf("                                             {!:!MM!~:XM!!!!!!.:!..~ !.  `{ \n");
+    printf("                                  {: `   :~ .:{~!!M!XXHM!!!X!XXHtMMHHHX!  ~ ~\n");
+    printf("                                ~~~~{' ~!!!:!!!!!XM!!M!!!XHMMMRMSXXX!!!!!!:  {`\n");
+    printf("                                  `{  {::!!!!!X!X?M!!M!!XMMMMXXMMMM??!!!!!?!:~{\n");
+    printf("                               : '~~~{!!!XMMH!!XMXMXHHXXXXM!!!!MMMMSXXXX!!!!!!!~\n");
+    printf("                            :    ::`~!!!MMMMXXXtMMMMMMMMMMMHX!!!!!!HMMMMMX!!!!!: ~\n");
+    printf("                              '~:~!!!!!MMMMMMMMMMMMMMMMMMMMMMXXX!!!M??MMMM!!X!!i:\n");
+    printf("                             :XX {!!XHMMMM88MM88BR$M$$$$8@8RN88MMMMMMMMHXX?MMMMMX!!!\n");
+    printf("                           .:X! {XMSM8M@@$$$$$$$$$$$$$$$$$$$B8R$8MMMMMMMMMMMMMMMMX!X\n");
+    printf("                          :!?! !?XMMMMM8$$$$8$$$$$$$$$$$$$$BBR$$MMM@MMMMMMMMMMMMMM!!X\n");
+    printf("                        ~{!!~ {!!XMMMB$$$$$$$$$$$$$$$$$$$$$$$$MMR$8MR$MMMMMMMMMMMMM!?!:\n");
+    printf("                        :~~~ !:X!XMM8$$$$$$$$$$$$$$$$$$$$$$$RR$$MMMMR8NMMMMMMMMMMMMM{!`-\n");
+    printf("                    ~:{!:~`~':!:HMM8N$$$$$$$$$$$$$$$$$$$$$$$$$8MRMM8R$MRMMMMMMMMRMMMX!\n");
+    printf("                  !X!``~~   :~XM?SMM$B$$$$$$$$$$$$$$$$$R$$$$$R$M$MMRRRM8MMMMMMM$$MMMMX?L\n");
+    printf("                X~.      : `!!!MM#$RR$$$$$$$$$$RMM!?!??RR?#R8$M$MMMRM$RMMMM8MM$MMM!M!:>\n");
+    printf("                ! ~ {~  !! !!~`` :!!MR$$$$$$$$$$R888HMM!!XXHWX$8$RM$MR5$8MMMMR$$@MMM!!!{\n");
+    printf("                !  ' !  ~!! :!:XXHXMMMR$$$$$$$$$$$$$$$$8$$$$8$$$MMR$M$$$MMMMMM$$$MMM!!!!\n");
+    printf("                 ~{!!!  !!! !!HMMMMMMMM$$$$$$$$$$$$$$$$$$$$$$$$$$MMM$M$$MM8MMMR$$MMXX!!!!/:`\n");
+    printf("                  ~!!!  !!! !XMMMMMMMMMMR$$$$$$$$$$$$R$RRR$$$$$$$MMMM$RM$MM8MM$$$M8MMMX!!!!:\n");
+    printf("                 !~ ~  !!~ XMMM%!!!XMMX?M$$$$$$$$B$MMSXXXH?MR$$8MMMM$$@$8$M$B$$$$B$MMMX!!!!\n");
+    printf("                  : ' >!~ '!!  !   .!XMM8$$$$$@$$$R888M$$$N8MMMMMMMMMMMMMMMMX!XMMMXX!!!XM\n");
+    printf("                !  ' !  ~!! :!:X!!XHMMMM?~ XM$$R5M$8MMM$! -XXXMMRMBMMM$RMMM@$R$BR$MMMMX!!X\n");
+    printf("                !     ~  !!?:::!!!MXMR~!MMMRMM8MMMMMS!!M?XXMMMMM$$M$M$RMMMM8$RMMMMMMMMXX!!\n");
+    printf("                 ~     ~  !~~X!!XHMMM?~ XM$MMMMRMMMMMM@MMMMMMMMMM$8@MMMMMMMMRMMMMM?!MMM%HX!\n");
+    printf("                          !!!!XSMMXXMM .MMMMMMMM$$$BB8MMM@MMMMMMMR$RMMMMMMMMMMMMMMMXX!?H!XX\n");
+    printf("                   ~   {!MMMMMMMMRM:XMMMMMMMMMM8R$$$$$$$$$$$$$$$NMMMMMMMM?!MM!M8MXX!!/t!M\n");
+    printf("                    '   ~HMMMMMMMMM~!MM8@8MMM!MM$$8$$$$$$$$$$$$$$8MMMMMMM!!XMMMM$8MR!MX!MM\n");
+    printf("                       'MMMMMMMMMM'MM$$$$$MMXMXM$$$$$$$$$$$$$$$$RMMMMMMM!!MMM$$$$MMMMM{!M\n");
+    printf("                      'MMMMMMMMM!'MM$$$$$RMMMMMM$$$$$$$$$$$$$$$MMM!MMMX!!MM$$$$$M$$M$M!M\n");
+    printf("                       !MMMMMM$M! !MR$$$RMM8$8MXM8$$$$$$$$$$$$NMMM!MMM!X!t8$M$MMMHMRMMX$\n");
+    printf("                 ,-,   '!!!MM$RMSMX:.?!XMHRR$RM88$$$8M$$$$$R$$$$8MM!MMXMH!M$$RMMMMRNMMX$\n");
+    printf("                  -'`    '!!!MMMMMMMMMM8$RMM8MBMRRMR8RMMM$$$$8$8$$$MMXMMMMM!MR$MM!M?MMMMMM$\n");
+    printf("                         'XX!MMMMMMM@RMM$MM@$$BM$$$M8MMMMR$$$$@$$$$MM!MMMMXX$MRM!XH!!??XMMM\n");
+    printf("                        `!!!M?MHMMM$RMMMR@$$$$MR@MMMM8MMMM$$$$$$$WMM!MMMM!M$RMM!!.MM!%M?~!\n");
+    printf("                         !!!!!!MMMMBMM$$RRMMMR8MMMMMRMMMMM8$$$$$$$MM?MMMM!f#RM~    `~!!!~!\n");
+    printf("---------------           ~!!HX!!~!?MM?MMM??MM?MMMMMMMMMRMMMM$$$$$MMM!MMMM!!\n");
+    printf("| AS YOU WISH |          '!!!MX!:`~                  !?MMMM8$$$$$MMMMXMMM!!\n");
+    printf("---------------            !!~M@MX..                 `!XMMMB$MM$$B$M!MMM!!\n");
+    printf("                           !!!?MRMM!HMMM$RMMMR@$$$$MR@MMMX$$MM$$$RMXMMM~\n");
+    printf("                            !M!MMMHMMM$RMMMR@$$$$MR@MMMM8MRM$$$$8MMMM~\n");
+    printf("                           `?H!MHMMM$RMMMR@$$$$MR@MMMM8MM$MM$$$$MX$f\n");
+    printf("                            `MHMMM$RMMMR@$$$$MR@MMM$$$MM$MM$$$RX@\"\n");
+    printf("                             ~M?$HMMM$RMMMR@$$$$MR@MMMM8$8$XM$$RM!`\n");
+    printf("                              !XMHMMM$RMMMR@$$$$MR@MMM$$$$RH$$M!~\n");
+    printf("                              'M?HMMM$RMMMR@$$$$MR@MMM$$$$$RM$$#\n");
+    printf("                               `>MMHMMM$RMMMR@$$$$MR@MMMBRM$M\"\n");
+    printf("                                 ~`?HMMM$RMMMR@$$$$MR@MM$RMM#\n");
+    printf("                                   `!MHMMM$RMMMR@$$$$MR@MMM#`\n");
+    printf("                                    !%HMMM$RMMMR@$$$$MR@M#`\n");
+    printf("                                     !!HMMM$RMMMR@$$$$$R*`\n");
+    printf("                                       ~!?MMMMRRRM@M#`\n");
+    printf("                                        `~???MMM?M\"`\n");
+    printf("                                          ``~~\n");
+}

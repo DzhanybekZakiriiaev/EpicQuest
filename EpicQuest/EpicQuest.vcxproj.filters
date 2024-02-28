@@ -24,6 +24,9 @@
     <ClCompile Include="calculator.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="illustration.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gamestate.h">
@@ -39,6 +42,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="calculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illustrations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

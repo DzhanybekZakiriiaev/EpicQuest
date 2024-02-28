@@ -11,6 +11,10 @@ GAME createGame();
 
 void startingMessage();
 
+bool isTrue(GAME, OPTION);
+
+void setTrue(GAME*, OPTION);
+
 void stageZero(GAME*);
 
 void stageOne(GAME*);
@@ -24,3 +28,5 @@ void stageFour(GAME*);
 void stageFive(GAME*);
 
 void stageSix(GAME*);
+
+void stageSeven(GAME*);
