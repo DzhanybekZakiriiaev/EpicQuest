@@ -22,7 +22,8 @@ GAME createGame() {
 		TROLL_BATTLE, TROLL_PHONE,
 		FOLLOW_POTTER, TROLL_STEAL, EPIC_QUEST, CALCULATOR,
 		PROVE_GOD, ATTACK_GOD, TEST_YOUR_LUCK, TROLL_WEAR, PLAY_CLUB,
-		ISLAND_TUNNEL, ISLAND_SHIP, ISLAND_AIRSHIP, KILL_HERO, EXPLAIN_HERO
+		ISLAND_TUNNEL, ISLAND_SHIP, ISLAND_AIRSHIP, KILL_HERO, EXPLAIN_HERO,
+		KEEP_DIGGING, DIG_UP, MASSACRE, EAT_HERO
 	};
 	for (int i = 0; i < OPTION_NUM; i++) {
 		gamestate.decisions[i].choice = false;
@@ -56,6 +57,19 @@ void setTrue(GAME* game, OPTION option) {
 	}
 }
 
+void setFalse(GAME* game, OPTION option) {
+	for (int i = 0; i < OPTION_NUM; i++) {
+		if (game->gamestate.decisions[i].option == option) {
+			game->gamestate.decisions[i].choice = false;
+		}
+	}
+}
+
+void setAllFalse(GAME* game) {
+	for (int i = 0; i < OPTION_NUM; i++) {
+		game->gamestate.decisions[i].choice = false;
+	}
+}
 
 void stageZero(GAME *game) {
 	int choice = 0;
@@ -284,6 +298,7 @@ void stageSix(GAME* game) {
 	}
 	else if (isTrue(*game, EPIC_QUEST)) {
 		printf("\033[H\033[2J");
+		setAllFalse(game);
 		startingMessage();
 		stageZero(game);
 		game -> gamestate.currentStage = 0;
@@ -385,40 +400,36 @@ void stageEight(GAME* game) {
 		game->isRunning = false;
 	}
 	else if (isTrue(*game, ISLAND_TUNNEL)) {
-		printf("You are stranded on a desert island in the middle of the ocean.\n");
-		printf("There are a couple of logs lying near you, what will you make?\n");
-		printf("1. Make a tunnel to escape.\n2. Make a ship to escape.\n3. Make an airship to escape.\n");
+		printf("It takes a long time to dig a tunnel, where are we digging now?\n");
+		printf("1. Dig down.\n2. Dig right.\n3. Dig left.\n4. Dig up\n");
 		printf("Your choise: ");
 	}
-	else if (isTrue(*game, TROLL_WEAR)) {
-		printf("While you were dressing up as a troll, a blond man on a horse appeared out of nowhere.\n");
-		printf("After saying that his name was Prince Charming, he demanded that you release Fiona.\n");
-		printf("1. It is just a misunderstanding.\n2. I AM A TROLL(kill weak human).\n");
-		printf("Your choise: ");
-	}
-	if (isTrue(*game, PLAY_CLUB)) {
-		printf("It took many attempts to finally lift it above my head.\n");
-		printf("After your triumph and new overhead press pr,");
-		printf(" the club fell and crushed your skull.\nTHE END.\n");
+	else if (isTrue(*game, EXPLAIN_HERO)) {
+		printf("While you were trying to explain yourself, the blonde stabbed you with his sword.\n");
+		printf("I don’t think it’s possible to explain anything to such an idiot, he didn’t even distinguish you from a troll\n");
+		printf("THE END.\n");
 		game->isRunning = false;
 	}
-	if (!isTrue(*game, ATTACK_GOD)) {
-		if ((scanf("%d", &choice) == 1)) {
-			if ((choice == 1) && (isTrue(*game, TEST_YOUR_LUCK) || isTrue(*game, PROVE_GOD))) {
-				setTrue(game, ISLAND_TUNNEL);
-			}
-			else if ((choice == 2) && (isTrue(*game, TEST_YOUR_LUCK) || isTrue(*game, PROVE_GOD))) {
-				setTrue(game, ISLAND_SHIP);
-			}
-			else if ((choice == 3) && (isTrue(*game, TEST_YOUR_LUCK) || isTrue(*game, PROVE_GOD))) {
-				setTrue(game, ISLAND_AIRSHIP);
-			}
-			else if ((choice == 1) && isTrue(*game, TROLL_WEAR)) {
-				setTrue(game, EXPLAIN_HERO);
-			}
-			else if ((choice == 2) && isTrue(*game, TROLL_WEAR)) {
-				setTrue(game, KILL_HERO);
-			}
+	if (isTrue(*game, KILL_HERO)) {
+		printf("STUPID HUMAN DOUBTED YOUR MIGHT!!!\n");
+		printf("1. KILL MORE HUMANS. DO A MASSACRE!!!\n2. EAT HUMAN!!!\n");
+		printf("Your choise: ");
+		game->isRunning = false;
+	}
+	if ((scanf("%d", &choice) == 1)) {
+		if ((choice != 4) && isTrue(*game, ISLAND_TUNNEL)) {
+			setTrue(game, KEEP_DIGGING);
+		}
+		else if ((choice == 4) && isTrue(*game, ISLAND_TUNNEL)) {
+			printf("Well, you kind of stupidly crawled out of the hole you dug\n");
+			setFalse(game, ISLAND_TUNNEL);
+			game->gamestate.currentStage = 6;
+		}
+		else if ((choice == 1) && isTrue(*game, KILL_HERO)) {
+			setTrue(game, MASSACRE);
+		}
+		else if ((choice == 2) && isTrue(*game, KILL_HERO)) {
+			setTrue(game, EAT_HERO);
 		}
 	}
 	game->gamestate.currentStage += 1;

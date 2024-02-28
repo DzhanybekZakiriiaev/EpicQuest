@@ -30,3 +30,5 @@ void stageFive(GAME*);
 void stageSix(GAME*);
 
 void stageSeven(GAME*);
+
+void stageEight(GAME*);
