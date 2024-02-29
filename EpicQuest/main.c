@@ -33,6 +33,9 @@ int main(void) {
 		else if (game.gamestate.currentStage == 8) {
 			stageEight(&game);
 		}
+		else if (game.gamestate.currentStage == 9) {
+			stageNine(&game);
+		}
 	} while(game.isRunning);
 	return 0;
 }

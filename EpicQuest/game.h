@@ -15,6 +15,10 @@ bool isTrue(GAME, OPTION);
 
 void setTrue(GAME*, OPTION);
 
+void setFalse(GAME*, OPTION);
+
+void setAllFalse(GAME*);
+
 void stageZero(GAME*);
 
 void stageOne(GAME*);

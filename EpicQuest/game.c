@@ -23,7 +23,8 @@ GAME createGame() {
 		FOLLOW_POTTER, TROLL_STEAL, EPIC_QUEST, CALCULATOR,
 		PROVE_GOD, ATTACK_GOD, TEST_YOUR_LUCK, TROLL_WEAR, PLAY_CLUB,
 		ISLAND_TUNNEL, ISLAND_SHIP, ISLAND_AIRSHIP, KILL_HERO, EXPLAIN_HERO,
-		KEEP_DIGGING, MASSACRE, EAT_HERO
+		KEEP_DIGGING, MASSACRE, EAT_HERO,
+		MORE_DIGGING, SHARK_JUMP, SHARK_TANK 
 	};
 	for (int i = 0; i < OPTION_NUM; i++) {
 		gamestate.decisions[i].choice = false;
@@ -398,7 +399,7 @@ void stageEight(GAME* game) {
 		game->isRunning = false;
 	}
 	else if (isTrue(*game, ISLAND_TUNNEL)) {
-		printf("It takes a long time to dig a tunnel, where are we digging now?\n");
+		printf("It takes a long time to dig a tunnel, where are we digging?\n");
 		printf("1. Dig down.\n2. Dig right.\n3. Dig left.\n4. Dig up\n");
 		printf("Your choise: ");
 	}
@@ -408,11 +409,10 @@ void stageEight(GAME* game) {
 		printf("THE END.\n");
 		game->isRunning = false;
 	}
-	if (isTrue(*game, KILL_HERO)) {
+	else if (isTrue(*game, KILL_HERO)) {
 		printf("STUPID HUMAN DOUBTED YOUR MIGHT!!!\n");
 		printf("1. KILL MORE HUMANS. DO A MASSACRE!!!\n2. EAT HUMAN!!!\n");
 		printf("Your choise: ");
-		game->isRunning = false;
 	}
 	if ((scanf("%d", &choice) == 1)) {
 		if ((choice != 4) && isTrue(*game, ISLAND_TUNNEL)) {
@@ -428,6 +428,39 @@ void stageEight(GAME* game) {
 		}
 		else if ((choice == 2) && isTrue(*game, KILL_HERO)) {
 			setTrue(game, EAT_HERO);
+		}
+	}
+	game->gamestate.currentStage += 1;
+}
+
+void stageNine(GAME* game) {
+	int choice = 0;
+	if (isTrue(*game, KEEP_DIGGING)) {
+		printf("It takes a long time to dig a tunnel, where are we digging now?\n");
+		printf("1. Idk, somewhere.\n2. Same as 1, just somewhere different.\n");
+		printf("Your choise: ");
+	}
+	else if (isTrue(*game, EAT_HERO)) {
+		printf("Looks like the this new diet isn't working for you. You died from poisoning.\n");
+		printf("THE END.\n");
+		game->isRunning = false;
+	}
+	else if (isTrue(*game, MASSACRE)) {
+		printf("You spend next day by killing everyone in your path. Fortunately, you didnt meet any people.\n");
+		printf("Your victims were three little pigs, a cookie, a cat and a donkey.\n");
+		printf("Now salt water lake with sharks is blocking your path. They don't want to let you through.\n");
+		printf("1. Get to the other side by jumping on their backs\n2. Hello sharks, I am here to present...\n");
+		printf("Your choise: ");
+	}
+	if ((scanf("%d", &choice) == 1)) {
+		if (isTrue(*game, KEEP_DIGGING)) {
+			setTrue(game, MORE_DIGGING);
+		}
+		else if ((choice == 1) && isTrue(*game, MASSACRE)) {
+			setTrue(game, SHARK_JUMP);
+		}
+		else if ((choice == 2) && isTrue(*game, MASSACRE)) {
+			setTrue(game, SHARK_TANK);
 		}
 	}
 	game->gamestate.currentStage += 1;
