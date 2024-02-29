@@ -1,8 +1,8 @@
 #pragma once
 #include <stdbool.h>
 #include "decision.h"
-#define POSIBILITIES 40
+#define OPTION_NUM 60
 typedef struct gamestate{
 	int currentStage;
-	DECISION decisions[POSIBILITIES];
+	DECISION decisions[OPTION_NUM];
 }GAMESTATE;

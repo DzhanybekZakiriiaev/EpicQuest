@@ -9,22 +9,22 @@
 #include "calculator.h"
 #include "illustrations.h"
 #define STAGE_NUM 20
-#define OPTION_NUM 40
+#define OPTION_NUM 60
 GAME createGame() {
 	GAME game;
 	game.stages = STAGE_NUM;
 	GAMESTATE gamestate;
 	OPTION optionList[OPTION_NUM] = {
-		LOOK_AROUND, FEEL_WALL,
-		RUN_RAND, LOOK_HARDER, KEEP_FEELING, FEEL_OTHER,
-		GANDALF_BATTLE, GANDLAF_RUN, SWITCH_ON, SWITCH_OFF,
-		CALL_POLICE, CALL_MOM, HONORIFICABILITUDINITATIBUS, DANCE,
-		TROLL_BATTLE, TROLL_PHONE,
+		LOOK_AROUND, FEEL_WALL, SCREAM_FOR_HELP,
+		RUN_RAND, LOOK_HARDER, KEEP_FEELING, FEEL_OTHER, RUN_TOWARDS, RUN_AWAY, KEEP_SCREAMING,
+		GANDALF_BATTLE, GANDLAF_RUN, SWITCH_ON, SWITCH_OFF, GO_HOME, LOOK_FOR_VICTIMS,
+		CALL_POLICE, CALL_MOM, HONORIFICABILITUDINITATIBUS, DANCE, PICK_PHONE, LEAVE_PHONE,
+		TROLL_BATTLE, TROLL_PHONE, PHONE_REVERSE, WAIT_DAYS, INSPECT_WELL, INSPECT_BACKYARD,
 		FOLLOW_POTTER, TROLL_STEAL, EPIC_QUEST, CALCULATOR,
 		PROVE_GOD, ATTACK_GOD, TEST_YOUR_LUCK, TROLL_WEAR, PLAY_CLUB,
 		ISLAND_TUNNEL, ISLAND_SHIP, ISLAND_AIRSHIP, KILL_HERO, EXPLAIN_HERO,
-		KEEP_DIGGING, MASSACRE, EAT_HERO,
-		MORE_DIGGING, SHARK_JUMP, SHARK_TANK 
+		KEEP_DIGGING, DIG_UP, MASSACRE, EAT_HERO,
+		MORE_DIGGING, SHARK_JUMP, SHARK_TANK
 	};
 	for (int i = 0; i < OPTION_NUM; i++) {
 		gamestate.decisions[i].choice = false;
@@ -75,7 +75,7 @@ void setAllFalse(GAME* game) {
 void stageZero(GAME *game) {
 	int choice = 0;
 	printf("You wake up in a dark room with no doors and windows. What will you do?\n");
-	printf("1. Look around\n2. Feel the closest wall\n");
+	printf("1. Look around\n2. Feel the closest wall\n3. Scream for help\n");
 	printf("Your choise: ");
 	if (scanf("%d", &choice) == 1) {
 		switch (choice)
@@ -85,6 +85,9 @@ void stageZero(GAME *game) {
 			break;
 		case 2:
 			setTrue(game, FEEL_WALL);
+			break;
+		case 3:
+			setTrue(game, SCREAM_FOR_HELP);
 			break;
 		default:
 			break;
@@ -98,9 +101,14 @@ void stageOne(GAME *game) {
 	if (isTrue(*game, LOOK_AROUND)) {
 		printf("You looked around in hope to see something, but the room is dark. Next time read more carefully.\n");
 		printf("1. Run in a random direction\n2. Look even harder\n");
-	}else if (isTrue(*game, FEEL_WALL)) {
+	}
+	else if (isTrue(*game, FEEL_WALL)) {
 		printf("You started feeling the wall. Somehow, you feel guilty doing it. The room is still dark.\n");
 		printf("1. Keep feeling the wall\n2. Feel other walls\n");
+	}
+	else if (isTrue(*game, SCREAM_FOR_HELP)) {
+		printf("Your scream attracted somebody. You hear them running at you.\n");
+		printf("1. Keep screaming.\n2. Run towards them.\n3. Run away from them.\n");
 	}
 	printf("Your choise: ");
 	if ((scanf("%d", &choice) == 1)) {
@@ -115,6 +123,16 @@ void stageOne(GAME *game) {
 		}
 		else if ((choice == 2) && isTrue(*game, FEEL_WALL)) {
 			setTrue(game, FEEL_OTHER);
+		}
+		else if ((choice == 1) && isTrue(*game, SCREAM_FOR_HELP)) {
+			setTrue(game, KEEP_SCREAMING);
+		}
+		else if ((choice == 2) && isTrue(*game, SCREAM_FOR_HELP)) {
+			setTrue(game, RUN_TOWARDS);
+		}
+		else if ((choice == 3) && isTrue(*game, SCREAM_FOR_HELP)) {
+			setTrue(game, RUN_AWAY);
+			setTrue(game, RUN_RAND);
 		}
 	}
 	game->gamestate.currentStage += 1;
@@ -144,6 +162,18 @@ void stageTwo(GAME* game) {
 		printf("1. Turn it on.\n2. Keep it as it is.\n");
 		printf("Your choise: ");
 	}
+	else if (isTrue(*game, KEEP_SCREAMING)) {
+		printf("Someone ran up and knocked you out by hitting you on the head with a blunt object.\n");
+		printf("You didn't wake up ever again.\n");
+		printf("THE END.\n");
+		game->isRunning = false;
+	}
+	else if (isTrue(*game, RUN_TOWARDS)) {
+		printf("By running towards him, you knocked the stranger down. He was wearing a hockey mask and holding a machete,\n");
+		printf("which he landed on. Seems like you are in his basement, there is a big EXIT sign.\n");
+		printf("1. Go home.\n2. Try to find other victims.\n");
+		printf("Your choise: ");
+	}
 	if ((scanf("%d", &choice) == 1)) {
 		if ((choice == 1) && isTrue(*game, RUN_RAND)) {
 			setTrue(game, GANDALF_BATTLE);
@@ -156,6 +186,12 @@ void stageTwo(GAME* game) {
 		}
 		else if ((choice == 2) && isTrue(*game, FEEL_OTHER)) {
 			setTrue(game, SWITCH_OFF);
+		}
+		else if ((choice == 1) && isTrue(*game, RUN_TOWARDS)) {
+			setTrue(game, GO_HOME);
+		}
+		else if ((choice == 2) && isTrue(*game, RUN_TOWARDS)) {
+			setTrue(game, LOOK_FOR_VICTIMS);
 		}
 	}
 	game->gamestate.currentStage += 1;
@@ -188,6 +224,16 @@ void stageThree(GAME* game) {
 		printf("THE END.\n");
 		game->isRunning = false;
 	}
+	else if (isTrue(*game, GO_HOME)) {
+		printf("Yes, it is this easy. Enjoy your long and happy life. \n");
+		printf("THE END.\n");
+		game->isRunning = false;
+	}
+	else if (isTrue(*game, LOOK_FOR_VICTIMS)) {
+		printf("You see a ringing phone.\n");
+		printf("1. Pick it up.\n2. Leave it.\n");
+		printf("Your choise: ");
+	}
 	if ((scanf("%d", &choice) == 1)) {
 		if ((choice == 1) && isTrue(*game, GANDLAF_RUN)) {
 			setTrue(game, CALL_POLICE);
@@ -200,6 +246,12 @@ void stageThree(GAME* game) {
 		}
 		else if ((choice == 2) && isTrue(*game, SWITCH_ON)) {
 			setTrue(game, DANCE);
+		}
+		else if ((choice == 1) && isTrue(*game, LOOK_FOR_VICTIMS)) {
+			setTrue(game, PICK_PHONE);
+		}
+		else if ((choice == 2) && isTrue(*game, LOOK_FOR_VICTIMS)) {
+			setTrue(game, LEAVE_PHONE);
 		}
 	}
 	game->gamestate.currentStage += 1;
@@ -234,12 +286,35 @@ void stageFour(GAME* game) {
 		printf("NICE JOB!\n");
 		game->isRunning = false;
 	}
+	else if (isTrue(*game, PICK_PHONE)) {
+		printf("A little girl's voice tells you that you will die in 7 days.\n");
+		printf("1. Whatever you say bounces off of me and sticks to you.\n2. Wait 7 days.\n");
+		printf("Your choise: ");
+	}
+	else if (isTrue(*game, LEAVE_PHONE)) {
+		printf("You could ask for help, but it's too late. You went to the backyard to look for people,\n");
+		printf("There is a well and it is suspiciously foggy.\n");
+		printf("1. Look into the well\n2. Look around the backyard\n");
+		printf("Your choise: ");
+	}
 	if ((scanf("%d", &choice) == 1)) {
 		if ((choice == 1) && isTrue(*game, CALL_MOM)) {
 			setTrue(game, TROLL_BATTLE);
 		}
 		else if ((choice == 2) && isTrue(*game, CALL_MOM)) {
 			setTrue(game, TROLL_PHONE);
+		}
+		if ((choice == 1) && isTrue(*game, PICK_PHONE)) {
+			setTrue(game, PHONE_REVERSE);
+		}
+		else if ((choice == 2) && isTrue(*game, PICK_PHONE)) {
+			setTrue(game, WAIT_DAYS);
+		}
+		if ((choice == 1) && isTrue(*game, LEAVE_PHONE)) {
+			setTrue(game, INSPECT_WELL);
+		}
+		else if ((choice == 2) && isTrue(*game, LEAVE_PHONE)) {
+			setTrue(game, INSPECT_BACKYARD);
 		}
 	}
 	game->gamestate.currentStage += 1;
